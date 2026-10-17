@@ -16,6 +16,7 @@ import {
   dedupeJourneyProgress,
 } from "@/lib/journeyEngine";
 import { Check, Trophy, ChevronUp } from "lucide-react";
+import { ART } from "@/lib/art";
 
 const todayStr = () => new Date().toISOString().slice(0, 10);
 
@@ -178,7 +179,7 @@ export default function Journey() {
     <ScreenShell eyebrow="Journey">
       {/* mountain silhouette */}
       <img
-        src="https://media.base44.com/images/public/6a6b54647f3ea8aab4cd0d06/83b699302_001B-ascent-mountain-range.png"
+        src={ART.ascentMountains}
         alt="The Aesthetic Ascent — mountain range"
         className="mx-auto mt-6 block w-full max-w-[960px] object-contain"
       />

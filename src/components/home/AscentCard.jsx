@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import LiquidFill from "@/components/home/LiquidFill";
+import { ART } from "@/lib/art";
 
-const MOUNTAIN =
-  "https://media.base44.com/images/public/6a6b54647f3ea8aab4cd0d06/83b699302_001B-ascent-mountain-range.png";
+const MOUNTAIN = ART.ascentMountains;
 
 // Aesthetic Ascent card — liquid-fill phase progress with the current step
 // meter and per-step bars. Extracted so both the mobile Home stack and the

@@ -1,7 +1,7 @@
 // Peak System service worker: makes the app open offline.
 // - App shell (index.html): network first, cached copy when offline.
-// - Hashed build assets, icons, artwork and fonts: cache first.
-const CACHE = "peak-system-v1";
+// - Hashed build assets, icons, bundled artwork and fonts: cache first.
+const CACHE = "peak-system-v2";
 const SHELL = ["./", "./index.html", "./manifest.webmanifest", "./icons/icon-192.png", "./icons/icon-512.png"];
 
 self.addEventListener("install", (event) => {
@@ -38,7 +38,6 @@ self.addEventListener("fetch", (event) => {
   const sameOrigin = url.origin === self.location.origin;
   const cacheable =
     sameOrigin ||
-    url.hostname === "media.base44.com" ||
     url.hostname.endsWith("fonts.googleapis.com") ||
     url.hostname.endsWith("fonts.gstatic.com");
   if (!cacheable) return;

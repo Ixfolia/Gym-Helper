@@ -2,13 +2,9 @@ import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { ART } from "@/lib/art";
 
-const PHASE_BANNERS = {
-  1: "https://media.base44.com/images/public/6a6b54647f3ea8aab4cd0d06/2c5430388_003-phase1-foundation-banner.png",
-  2: "https://media.base44.com/images/public/6a6b54647f3ea8aab4cd0d06/e1cb53396_006A-phase2-walls-banner.png",
-  3: "https://media.base44.com/images/public/6a6b54647f3ea8aab4cd0d06/61116920d_006B-phase3-city-banner.png",
-  4: "https://media.base44.com/images/public/6a6b54647f3ea8aab4cd0d06/b53849dbf_006C-phase4-zenith-banner.png",
-};
+const PHASE_BANNERS = ART.phaseBanners;
 
 const BASE_IMG =
   "pointer-events-none absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-[600ms] ease-in-out";
