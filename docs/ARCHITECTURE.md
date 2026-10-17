@@ -24,6 +24,7 @@ None of the coaching logic ran on the server. Every calculation (maintenance, ta
 | Settings → Log out | Settings → **Your data** (export / restore / erase) |
 | `BrowserRouter`, Base44 Vite plugin | `HashRouter`, plain Vite with `base: './'`, so it runs on static hosting |
 | Base44 hosting | GitHub Pages workflow, PWA manifest and service worker (offline) |
+| Artwork on Base44's media CDN (`media.base44.com`) | Bundled in `public/art/` (resized, WebP) and referenced through `src/lib/art.js` |
 | Unused deps (Stripe, three, leaflet, quill, jspdf, lodash, moment…) | Dropped |
 
 Two crashes on a fresh install were fixed along the way:

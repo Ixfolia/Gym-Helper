@@ -14,7 +14,7 @@ The app is a Progressive Web App (PWA). Once it's hosted you open a URL and add 
    - **iPhone (Safari):** Share → **Add to Home Screen**.
    - **Android (Chrome):** ⋮ menu → **Install app** / **Add to Home screen**.
 
-It then launches full screen like a native app and works offline. A service worker caches the app shell, the artwork and the fonts.
+It then launches full screen like a native app and works offline. All artwork ships with the app in `public/art/`, and a service worker precaches it along with the app shell. Fonts are cached after the first online load.
 
 ## Where your data lives
 
@@ -41,6 +41,6 @@ npm run preview   # serve the production build
 | `src/pages/` | Screens: Home, Fuel (+ Maintenance, GoalPacing), Train, Habits, Journey, Mirror, Gate, Settings |
 | `src/components/` | Feature components grouped by screen, plus shadcn/ui primitives in `ui/` |
 | `src/lib/` | Pure coaching logic: metabolism, winning week, journey engine, splits, gate, and more |
-| `public/` | PWA manifest, service worker, icons |
+| `public/` | PWA manifest, service worker, icons, bundled artwork (`art/`) |
 | `docs/ARCHITECTURE.md` | How the original app was reverse engineered, and how the logic works |
 | `docs/entities/` | The original Base44 entity schemas (the data model) |
