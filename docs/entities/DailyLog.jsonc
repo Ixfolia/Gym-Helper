@@ -1,0 +1,67 @@
+{
+  "name": "DailyLog",
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "calories": {
+      "type": "number"
+    },
+    "protein": {
+      "type": "number"
+    },
+    "meals": {
+      "type": "array",
+      "description": "Meal-by-meal log. calories and protein on the DailyLog are the day's totals and must always equal the sums of these meals. A log with totals but no meals array is a legacy day total shown as a single 'Day total' row; it becomes meal 1 the first time the member adds, edits, or deletes anything that day.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "n": {
+            "type": "integer",
+            "description": "meal number, sequential from 1"
+          },
+          "calories": {
+            "type": "number"
+          },
+          "protein": {
+            "type": "number"
+          },
+          "logged_at": {
+            "type": "string",
+            "description": "ISO timestamp of when the meal was logged"
+          }
+        },
+        "required": [
+          "n",
+          "calories",
+          "protein",
+          "logged_at"
+        ]
+      }
+    },
+    "voided": {
+      "type": "boolean",
+      "default": false,
+      "description": "true when the member flagged this day's entry as junk/outlier data. Voided days are never deleted \u2014 they stay visible in Review Days and still count as tracked; only their calorie/protein numbers are quarantined from averages, zone/protein-day counts, bounce-back and throttle logic."
+    }
+  },
+  "required": [
+    "date"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

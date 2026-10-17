@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 232 44% 4%;
+    --foreground: 210 40% 95%;
+    --card: 233 38% 7%;
+    --card-foreground: 210 40% 95%;
+    --popover: 233 38% 7%;
+    --popover-foreground: 210 40% 95%;
+    --primary: 193 100% 50%;
+    --primary-foreground: 232 50% 5%;
+    --secondary: 230 32% 12%;
+    --secondary-foreground: 210 40% 92%;
+    --muted: 230 28% 14%;
+    --muted-foreground: 215 25% 62%;
+    --accent: 193 100% 50%;
+    --accent-foreground: 232 50% 5%;
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 210 40% 95%;
+    --success: 193 100% 50%;
+    --success-foreground: 232 50% 5%;
+    --border: 225 30% 15%;
+    --input: 225 30% 16%;
+    --ring: 193 100% 50%;
+    --chart-1: 193 100% 50%;
+    --chart-2: 210 80% 60%;
+    --chart-3: 230 60% 55%;
+    --chart-4: 200 90% 65%;
+    --chart-5: 180 70% 50%;
+    --radius: 1rem;
+    --font-heading: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --sidebar-background: 232 44% 4%;
+    --sidebar-foreground: 210 40% 95%;
+    --sidebar-primary: 193 100% 50%;
+    --sidebar-primary-foreground: 232 50% 5%;
+    --sidebar-accent: 230 32% 12%;
+    --sidebar-accent-foreground: 210 40% 92%;
+    --sidebar-border: 225 30% 15%;
+    --sidebar-ring: 193 100% 50%;
+  }
+
+  .dark {
+    --background: 232 44% 4%;
+    --foreground: 210 40% 95%;
+    --card: 233 38% 7%;
+    --card-foreground: 210 40% 95%;
+    --popover: 233 38% 7%;
+    --popover-foreground: 210 40% 95%;
+    --primary: 193 100% 50%;
+    --primary-foreground: 232 50% 5%;
+    --secondary: 230 32% 12%;
+    --secondary-foreground: 210 40% 92%;
+    --muted: 230 28% 14%;
+    --muted-foreground: 215 25% 62%;
+    --accent: 193 100% 50%;
+    --accent-foreground: 232 50% 5%;
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 210 40% 95%;
+    --success: 193 100% 50%;
+    --success-foreground: 232 50% 5%;
+    --border: 225 30% 15%;
+    --input: 225 30% 16%;
+    --ring: 193 100% 50%;
+    --sidebar-background: 232 44% 4%;
+    --sidebar-foreground: 210 40% 95%;
+    --sidebar-primary: 193 100% 50%;
+    --sidebar-primary-foreground: 232 50% 5%;
+    --sidebar-accent: 230 32% 12%;
+    --sidebar-accent-foreground: 210 40% 92%;
+    --sidebar-border: 225 30% 15%;
+    --sidebar-ring: 193 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@layer utilities {
+  .bg-starfield {
+    background-color: #06070E;
+    background-image:
+      radial-gradient(1.4px 1.4px at 20px 30px, rgba(255, 255, 255, 0.45), transparent 60%),
+      radial-gradient(1px 1px at 80px 120px, rgba(255, 255, 255, 0.32), transparent 60%),
+      radial-gradient(1px 1px at 160px 80px, rgba(255, 255, 255, 0.28), transparent 60%),
+      radial-gradient(1.4px 1.4px at 240px 200px, rgba(255, 255, 255, 0.4), transparent 60%),
+      radial-gradient(1px 1px at 320px 60px, rgba(255, 255, 255, 0.24), transparent 60%),
+      radial-gradient(1px 1px at 380px 260px, rgba(255, 255, 255, 0.3), transparent 60%),
+      radial-gradient(1.2px 1.2px at 120px 280px, rgba(255, 255, 255, 0.22), transparent 60%),
+      radial-gradient(1px 1px at 300px 340px, rgba(255, 255, 255, 0.26), transparent 60%);
+    background-repeat: repeat;
+    background-size: 420px 360px;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 28px rgba(0, 212, 255, 0.55), 0 0 64px rgba(0, 212, 255, 0.22);
+  }
+
+  .glow-sm {
+    box-shadow: 0 0 18px rgba(0, 212, 255, 0.32), 0 0 48px rgba(0, 212, 255, 0.14);
+  }
+
+  .glow-md {
+    box-shadow: 0 0 40px rgba(0, 212, 255, 0.3), 0 0 90px rgba(0, 212, 255, 0.12);
+  }
+}

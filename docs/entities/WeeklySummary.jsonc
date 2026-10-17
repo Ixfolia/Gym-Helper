@@ -1,0 +1,75 @@
+{
+  "name": "WeeklySummary",
+  "type": "object",
+  "properties": {
+    "week_start": {
+      "type": "string",
+      "format": "date",
+      "description": "Monday that starts the calendar week this row grades"
+    },
+    "stage": {
+      "type": "string",
+      "description": "stage label at grading time: S0 | S1 | S2 | S3"
+    },
+    "warmup": {
+      "type": "boolean",
+      "default": false
+    },
+    "nutrition_won": {
+      "type": "boolean",
+      "default": false
+    },
+    "workouts_won": {
+      "type": "boolean",
+      "default": false
+    },
+    "habits_won": {
+      "type": "boolean",
+      "default": false
+    },
+    "won": {
+      "type": "boolean",
+      "default": false,
+      "description": "overall win for the week (nutrition mandatory + pillar flex pair)"
+    },
+    "tracked_days": {
+      "type": "integer",
+      "description": "tracked days in the week (calories > 0, not voided)"
+    },
+    "avg_calories": {
+      "type": "number"
+    },
+    "avg_protein": {
+      "type": "number"
+    },
+    "weight_change": {
+      "type": "number"
+    },
+    "workouts_done": {
+      "type": "integer"
+    },
+    "workouts_total": {
+      "type": "integer"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "week_start"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

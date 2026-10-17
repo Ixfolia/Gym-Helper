@@ -1,0 +1,41 @@
+{
+  "name": "MaintenanceHistory",
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "value": {
+      "type": "number",
+      "description": "estimated maintenance calories"
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "calculated",
+        "manual",
+        "estimated",
+        "initial"
+      ]
+    }
+  },
+  "required": [
+    "date",
+    "value"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

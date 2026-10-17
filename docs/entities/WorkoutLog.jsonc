@@ -1,0 +1,52 @@
+{
+  "name": "WorkoutLog",
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "session_name": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "done",
+        "rest",
+        "missed"
+      ]
+    },
+    "mode": {
+      "type": "string",
+      "enum": [
+        "full",
+        "express",
+        "travel",
+        "cardio"
+      ]
+    },
+    "travel": {
+      "type": "boolean",
+      "default": false,
+      "description": "true when this completed session was a travel-mode session; lets the Winning Week detect travel weeks and grade them against road-adjusted goals"
+    }
+  },
+  "required": [
+    "date"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

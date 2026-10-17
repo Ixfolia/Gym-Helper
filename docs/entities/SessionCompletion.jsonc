@@ -1,0 +1,41 @@
+{
+  "name": "SessionCompletion",
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "session_name": {
+      "type": "string",
+      "description": "name of the split day / session completed"
+    },
+    "journey_phase": {
+      "type": "string",
+      "description": "member's current journey phase label at the time of completion"
+    },
+    "travel": {
+      "type": "boolean",
+      "default": false,
+      "description": "true when this completed session was a travel-mode session; lets the merged completed-sessions helper flag travel weeks alongside the WorkoutLog travel write."
+    }
+  },
+  "required": [
+    "date",
+    "session_name"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

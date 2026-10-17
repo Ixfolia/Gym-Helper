@@ -1,0 +1,36 @@
+{
+  "name": "ProgressPhoto",
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "file_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "private": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "date",
+    "file_url"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

@@ -1,0 +1,229 @@
+{
+  "name": "Profile",
+  "type": "object",
+  "properties": {
+    "cadence": {
+      "type": "string",
+      "enum": [
+        "3-5",
+        "4-6"
+      ]
+    },
+    "track": {
+      "type": "string",
+      "enum": [
+        "A",
+        "B"
+      ]
+    },
+    "sex": {
+      "type": "string",
+      "enum": [
+        "male",
+        "female"
+      ]
+    },
+    "age": {
+      "type": "integer"
+    },
+    "height": {
+      "type": "number",
+      "description": "cm"
+    },
+    "current_weight": {
+      "type": "number",
+      "description": "kg"
+    },
+    "activity_level": {
+      "type": "string",
+      "enum": [
+        "sedentary",
+        "light",
+        "moderate",
+        "active",
+        "very_active"
+      ]
+    },
+    "calibration_answers": {
+      "type": "object",
+      "description": "freeform answers from the calibration flow"
+    },
+    "metabolism_profile": {
+      "type": "object",
+      "description": "computed maintenance, TDEE breakdown, etc."
+    },
+    "goal": {
+      "type": "string",
+      "enum": [
+        "lose",
+        "maintain",
+        "gain"
+      ]
+    },
+    "goal_amount": {
+      "type": "number",
+      "description": "kg to lose or gain"
+    },
+    "goal_timeframe": {
+      "type": "string",
+      "description": "rough timeframe label"
+    },
+    "weigh_in_day": {
+      "type": "string",
+      "enum": [
+        "mon",
+        "tue",
+        "wed",
+        "thu",
+        "fri",
+        "sat",
+        "sun"
+      ]
+    },
+    "habits": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "up to 3 custom habit names"
+    },
+    "retarget_areas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "area": {
+            "type": "string"
+          },
+          "sub": {
+            "type": "string"
+          },
+          "allocation": {
+            "type": "number"
+          }
+        }
+      },
+      "description": "chosen lagging areas as pick objects {area, sub?, allocation?}; legacy 'area' or 'area/sub' strings still load via normalizePick"
+    },
+    "retarget_cardio": {
+      "type": "string",
+      "description": "chosen cardio/activity for the 50/50 day"
+    },
+    "week_schedule": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "custom 7-day session key order (Mon-Sun)"
+    },
+    "win_zone": {
+      "type": "number",
+      "description": "calorie zone half-width around target for a winning week",
+      "default": 100
+    },
+    "review_cadence": {
+      "type": "string",
+      "enum": [
+        "weekly",
+        "biweekly",
+        "monthly"
+      ],
+      "default": "weekly"
+    },
+    "travel_mode": {
+      "type": "boolean",
+      "default": false
+    },
+    "travel_equipment": {
+      "type": "object",
+      "description": "travel-mode equipment availability: { pullup_bar, dumbbells, medicine_ball } booleans",
+      "default": {}
+    },
+    "last_travel_session": {
+      "type": "string",
+      "enum": [
+        "A",
+        "B"
+      ],
+      "description": "last travel workout performed; drives A/B alternation"
+    },
+    "short_on_time_date": {
+      "type": "string",
+      "format": "date",
+      "description": "date when 'Short on time today' is active; if it matches today the session shows trimmed sets. Stale any other day, so it resets tomorrow."
+    },
+    "cardio_enabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "cardio_style": {
+      "type": "string",
+      "description": "chosen cardio style label"
+    },
+    "cardio_frequency": {
+      "type": "integer",
+      "default": 0,
+      "description": "cardio sessions per week"
+    },
+    "periodization_enabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "periodization_flex": {
+      "type": "number",
+      "description": "calorie flex for periodization (training +flex, rest -flex, balanced so weekly average is unchanged)",
+      "default": 150
+    },
+    "current_journey_phase": {
+      "type": "string"
+    },
+    "current_journey_step": {
+      "type": "string"
+    },
+    "last_celebrated_phase": {
+      "type": "string",
+      "description": "the journey phase number (as a string) whose phase-complete celebration has already played; prevents repeating the unlock dialog and Ascent card animation"
+    },
+    "reset_date": {
+      "type": "string",
+      "format": "date",
+      "description": "when the user last reset their week; the current winning-week period restarts from here"
+    },
+    "weight_unit": {
+      "type": "string",
+      "enum": [
+        "lbs",
+        "kg"
+      ],
+      "default": "lbs",
+      "description": "member-facing weight display preference. Storage stays kg; only display/entry convert at the boundary."
+    },
+    "custom_target": {
+      "type": "number",
+      "description": "user-confirmed daily calorie target (kcal) overriding the coach-prescribed pace target for lose/gain goals; used by computeTarget"
+    },
+    "protein_override_g": {
+      "type": "number",
+      "default": null,
+      "description": "manual daily protein target (g) overriding the formula-based target; null falls back to the live computeBaseline protein. Cleared when the goal moves away from weight loss."
+    }
+  },
+  "required": [
+    "cadence",
+    "track"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}
