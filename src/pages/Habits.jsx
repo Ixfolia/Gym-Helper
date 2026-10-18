@@ -5,6 +5,7 @@ import ScreenShell from "@/components/ScreenShell";
 import HabitSlot from "@/components/habits/HabitSlot";
 import { currentWeekRange, habitWeeklyStats } from "@/lib/weekScore";
 import { MessageCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const todayStr = () => format(new Date(), "yyyy-MM-dd");
 
@@ -104,7 +105,11 @@ export default function Habits() {
       <div className="mt-6 flex items-start gap-2.5 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-4">
         <MessageCircle className="mt-0.5 h-4 w-4 shrink-0 text-accent/70" strokeWidth={1.75} />
         <p className="text-xs font-light leading-relaxed text-foreground/50">
-          Not sure which 3 habits? Text AM Coach AI what you're struggling with.
+          Not sure which 3 habits?{" "}
+          <Link to="/coach" className="text-accent underline-offset-2 hover:underline">
+            Text your coach
+          </Link>{" "}
+          what you're struggling with.
         </p>
       </div>
     </ScreenShell>

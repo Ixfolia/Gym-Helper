@@ -23,7 +23,13 @@ export const ENTITY_NAMES = [
   "WeeklySummary",
   "JourneyProgress",
   "ProgressPhoto",
+  "CoachDoc", // coach instruction documents loaded in Settings
+  "CoachMessage", // coach chat history
+  "CoachConfig", // provider, model and API key — never exported
 ];
+
+// Rows that must never leave the device in a backup file (the API key).
+const PRIVATE_ENTITIES = new Set(["CoachConfig"]);
 
 const FILE_PREFIX = "local-file://";
 const LS_PREFIX = "peak-system:";
@@ -299,7 +305,7 @@ const photos = {
 
 async function exportAll() {
   const data = {};
-  for (const n of ENTITY_NAMES) data[n] = await loadRows(n);
+  for (const n of ENTITY_NAMES) if (!PRIVATE_ENTITIES.has(n)) data[n] = await loadRows(n);
   const files = {};
   for (const ph of data.ProgressPhoto) {
     const uri = ph.file_url || "";
@@ -323,7 +329,10 @@ async function importAll(backup) {
     const blob = await dataUrlToBlob(dataUrl);
     await putFile({ id: fid, blob, type: blob.type, created_date: new Date().toISOString() });
   }
-  for (const n of ENTITY_NAMES) await saveRows(n, Array.isArray(backup.entities[n]) ? backup.entities[n] : []);
+  for (const n of ENTITY_NAMES) {
+    if (PRIVATE_ENTITIES.has(n)) continue; // keep this device's coach settings
+    await saveRows(n, Array.isArray(backup.entities[n]) ? backup.entities[n] : []);
+  }
 }
 
 async function clearAll() {

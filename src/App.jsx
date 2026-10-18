@@ -16,6 +16,7 @@ import Journey from '@/pages/Journey';
 import Mirror from '@/pages/Mirror';
 import Gate from '@/pages/Gate';
 import Settings from '@/pages/Settings';
+import Coach from '@/pages/Coach';
 
 // All data lives on this device (see src/api/db.js), so there is no sign-in:
 // the app opens straight to the dashboard. HashRouter keeps deep links working
@@ -38,6 +39,7 @@ function App() {
               <Route path="/mirror" element={<Mirror />} />
               <Route path="/gate" element={<Gate />} />
               <Route path="/settings" element={<Settings />} />
+              <Route path="/coach" element={<Coach />} />
             </Route>
             <Route path="*" element={<PageNotFound />} />
           </Routes>

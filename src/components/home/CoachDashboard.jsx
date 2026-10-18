@@ -14,7 +14,7 @@ import BounceBackCard from "@/components/fuel/BounceBackCard";
 import ThrottleCard from "@/components/home/ThrottleCard";
 import MirrorCheckCard from "@/components/home/MirrorCheckCard";
 import WeeklyCaloriesCard from "@/components/home/WeeklyCaloriesCard";
-import { ArrowUpRight, Scale, Settings } from "lucide-react";
+import { ArrowUpRight, MessageCircle, Scale, Settings } from "lucide-react";
 
 // Desktop-only "Coach's Dashboard" — a three-panel command center rendering the
 // exact same Home data at higher density. The phone layout is untouched.
@@ -67,6 +67,9 @@ export default function CoachDashboard({ view, onLogWeight }) {
           <p className="text-[10px] font-mono uppercase tracking-[0.18em] text-foreground/40">Coach's Dashboard</p>
           <div className="flex items-center gap-3">
             <p className="text-[10px] font-light text-foreground/30">{format(new Date(), "EEEE · MMM d")}</p>
+            <Link to="/coach" aria-label="AI Coach" className="text-foreground/45 transition-colors hover:text-foreground/80">
+              <MessageCircle className="h-[18px] w-[18px]" strokeWidth={1.5} />
+            </Link>
             <Link to="/settings" aria-label="Settings" className="text-foreground/45 transition-colors hover:text-foreground/80">
               <Settings className="h-[18px] w-[18px]" strokeWidth={1.5} />
             </Link>

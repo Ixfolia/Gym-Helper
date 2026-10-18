@@ -9,6 +9,7 @@ import MetabolismCalibrationCard from "@/components/settings/MetabolismCalibrati
 import TrainingCard from "@/components/settings/TrainingCard";
 import HabitsCard from "@/components/settings/HabitsCard";
 import DataCard from "@/components/settings/DataCard";
+import CoachCard from "@/components/settings/CoachCard";
 
 export default function Settings() {
   const navigate = useNavigate();
@@ -86,6 +87,8 @@ export default function Settings() {
           <HabitsCard profile={profile} />
         </div>
       )}
+
+      <CoachCard />
 
       <div className="rounded-3xl border border-white/[0.06] bg-white/[0.02] p-6">
         <div className="flex items-center gap-3">
