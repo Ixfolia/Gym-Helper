@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { format } from "date-fns";
 import { db } from "@/api/db";
 import BigChoice from "@/components/fuel/BigChoice";
@@ -191,10 +190,7 @@ export default function MetabolismCalibrationCard({ profile, history, onSaved })
               <DialogHeader>
                 <DialogTitle className="text-base font-semibold">Talk it through first</DialogTitle>
                 <DialogDescription className="text-[13px] font-light leading-relaxed text-foreground/60">
-                  Your maintenance is the number everything else hangs on. Have a conversation with your AM Coach AI before changing it, and stay close to its recommendation.{" "}
-                  <Link to="/coach" className="inline text-accent underline-offset-2 hover:underline">
-                Open your coach →
-              </Link>
+                  Your maintenance is the number everything else hangs on. Have a conversation with your AM Coach AI before changing it, and stay close to its recommendation.
                 </DialogDescription>
               </DialogHeader>
               <div className="mt-2 flex gap-2">

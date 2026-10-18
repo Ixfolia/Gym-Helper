@@ -23,23 +23,6 @@ It then launches full screen like a native app and works offline. All artwork sh
 - On startup the app asks the browser for persistent storage, so the OS won't clear the data under storage pressure.
 - **Settings → Your data** has **Export backup** (a JSON file that includes your photos; on phones it opens the share sheet), **Restore from backup**, and **Erase all data**. Make a backup before you switch phones or clear your browser data. Data is tied to the browser and URL you installed from.
 
-## AI Coach
-
-The app has a built-in coach (Home → chat icon, or **Talk to your coach**). It runs on your own AI account:
-
-1. **Settings → AI Coach:** choose a provider, paste an API key, pick a model, then tap **Save & test connection**.
-   - **Claude (Anthropic):** create a key at console.anthropic.com. Defaults to Claude Opus 5.5; Sonnet 5.5 and Haiku 5.5 are cheaper.
-   - **OpenAI**, **OpenRouter** (one key for many models), or any **OpenAI-compatible** service: type the model id.
-2. **Add instruction files** (`.md` / `.txt`). For AM Coach that's the master knowledge file followed by each update, in order; later files override earlier ones.
-3. Chat. With every message the coach gets a read-only snapshot of your app data (targets, last 21 days of fuel logs, weigh-ins, training, habits, graded weeks, journey step). You can attach food photos for Plate Check.
-
-How it works and what to expect:
-
-- The app calls the provider directly from your phone. Your key, provider and model are stored on the device only and are **never included in backups**. The instruction files and chat history are stored on the device and are included in backups.
-- The instruction files are not part of the app or this repository; they exist only on devices where you've loaded them.
-- The instructions (~55k tokens for AM Coach) are sent with every message. With Claude they're prompt-cached, so after the first message in a session they cost about a tenth as much.
-- No scheduled check-ins or texts: the coach only replies when you message it. The app tells the coach this, so it won't ask you to set up routines or WhatsApp.
-
 ## Developing
 
 ```bash
@@ -55,7 +38,6 @@ npm run preview   # serve the production build
 | Path | What it is |
 | --- | --- |
 | `src/api/db.js` | On-device data layer (IndexedDB) and the photo store. Replaces the Base44 SDK. |
-| `src/lib/coach/` | AI coach: provider calls (`providers.js`) and the app-data snapshot (`context.js`) |
 | `src/pages/` | Screens: Home, Fuel (+ Maintenance, GoalPacing), Train, Habits, Journey, Mirror, Gate, Settings |
 | `src/components/` | Feature components grouped by screen, plus shadcn/ui primitives in `ui/` |
 | `src/lib/` | Pure coaching logic: metabolism, winning week, journey engine, splits, gate, and more |

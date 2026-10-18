@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
 import { goalPacing } from "@/lib/metabolism";
 import NumberField from "@/components/fuel/NumberField";
@@ -204,10 +203,7 @@ export default function AdjustTargetSection({
             </DialogTitle>
             <DialogDescription className="text-sm font-light leading-relaxed text-foreground/55">
               Manual targets skip the guardrails. Have a quick conversation with your AM Coach AI before
-              you change the number — it knows your goal, your timeline, and what's sustainable.{" "}
-              <Link to="/coach" className="inline text-accent underline-offset-2 hover:underline">
-                Open your coach →
-              </Link>
+              you change the number — it knows your goal, your timeline, and what's sustainable.
             </DialogDescription>
           </DialogHeader>
           <DialogFooter className="gap-2">

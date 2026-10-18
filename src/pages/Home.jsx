@@ -39,7 +39,7 @@ import {
 import { JOURNEY, flattenSteps } from "@/lib/journey";
 import { evaluateAll, stepProgress, phaseFraction, derivePhaseStep, completedPhaseToCelebrate } from "@/lib/journeyEngine";
 import { normalizePick } from "@/lib/splits";
-import { ArrowUpRight, MessageCircle, Scale, Settings } from "lucide-react";
+import { ArrowUpRight, Scale, Settings } from "lucide-react";
 
 export default function Home() {
   const [d, setData] = useState(null);
@@ -570,9 +570,6 @@ export default function Home() {
         <p className="text-[10px] font-mono uppercase tracking-[0.18em] text-foreground/40">Coach's Dashboard</p>
         <div className="flex items-center gap-3">
           <p className="text-[10px] font-light text-foreground/30">{format(new Date(), "EEEE · MMM d")}</p>
-          <Link to="/coach" aria-label="AI Coach" className="text-foreground/45 transition-colors hover:text-foreground/80">
-            <MessageCircle className="h-[18px] w-[18px]" strokeWidth={1.5} />
-          </Link>
           <Link to="/settings" aria-label="Settings" className="text-foreground/45 transition-colors hover:text-foreground/80">
             <Settings className="h-[18px] w-[18px]" strokeWidth={1.5} />
           </Link>
@@ -704,13 +701,6 @@ export default function Home() {
           className="flex items-center justify-between rounded-2xl border border-white/[0.06] bg-white/[0.02] px-4 py-3.5 transition-all hover:border-accent/30"
         >
           <span className="text-sm text-foreground/75">Today's session</span>
-          <ArrowUpRight className="h-4 w-4 text-foreground/30" strokeWidth={1.5} />
-        </Link>
-        <Link
-          to="/coach"
-          className="flex items-center justify-between rounded-2xl border border-white/[0.06] bg-white/[0.02] px-4 py-3.5 transition-all hover:border-accent/30"
-        >
-          <span className="text-sm text-foreground/75">Talk to your coach</span>
           <ArrowUpRight className="h-4 w-4 text-foreground/30" strokeWidth={1.5} />
         </Link>
         <Link
