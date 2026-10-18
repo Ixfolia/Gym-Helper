@@ -21,6 +21,7 @@ import WeekView from "@/components/train/WeekView";
 import DayDetailSheet from "@/components/train/DayDetailSheet";
 import CardioCard from "@/components/train/CardioCard";
 import CompleteSessionBar from "@/components/train/CompleteSessionBar";
+import TrainingCalendar from "@/components/train/TrainingCalendar";
 import { currentPhaseLabel } from "@/lib/sessionCompletion";
 import { format } from "date-fns";
 import { Settings2 } from "lucide-react";
@@ -233,6 +234,22 @@ export default function Train() {
             onOpenDay={(idx) => setDetailIdx(idx)}
           />
           <CardioCard profile={profile} />
+        </div>
+      </div>
+
+      <div className="mt-14">
+        <div className="flex items-end justify-between">
+          <p className="text-[10px] uppercase tracking-[0.28em] text-foreground/35">Calendar</p>
+          <p className="text-[10px] font-light text-foreground/30">Tap a day to log what you did</p>
+        </div>
+        <div className="mt-4">
+          <TrainingCalendar
+            profile={profile}
+            schedule={schedule}
+            journeyPhase={journeyPhase}
+            todayCompletion={todayCompletion}
+            onTodayChange={setTodayCompletion}
+          />
         </div>
       </div>
 
