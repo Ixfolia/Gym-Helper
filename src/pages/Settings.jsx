@@ -9,6 +9,7 @@ import MetabolismCalibrationCard from "@/components/settings/MetabolismCalibrati
 import TrainingCard from "@/components/settings/TrainingCard";
 import HabitsCard from "@/components/settings/HabitsCard";
 import DataCard from "@/components/settings/DataCard";
+import CopyNumbers from "@/components/CopyNumbers";
 
 export default function Settings() {
   const navigate = useNavigate();
@@ -120,6 +121,15 @@ export default function Settings() {
             {busy ? "Starting…" : "Reset my week"}
           </button>
         )}
+      </div>
+
+      <div className="mt-6 rounded-3xl border border-white/[0.06] bg-white/[0.02] p-6">
+        <p className="text-sm text-foreground">Share with your coach</p>
+        <p className="mb-4 mt-1 text-[11px] font-light leading-relaxed text-foreground/45">
+          Copies your targets, last 21 days of fuel logs, weigh-ins, training, habits, graded weeks and journey step as text,
+          ready to paste into a chat with your coach.
+        </p>
+        <CopyNumbers />
       </div>
 
       <DataCard />

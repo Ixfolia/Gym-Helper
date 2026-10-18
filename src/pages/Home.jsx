@@ -39,6 +39,7 @@ import {
 import { JOURNEY, flattenSteps } from "@/lib/journey";
 import { evaluateAll, stepProgress, phaseFraction, derivePhaseStep, completedPhaseToCelebrate } from "@/lib/journeyEngine";
 import { normalizePick } from "@/lib/splits";
+import CopyNumbers from "@/components/CopyNumbers";
 import { ArrowUpRight, Scale, Settings } from "lucide-react";
 
 export default function Home() {
@@ -710,6 +711,7 @@ export default function Home() {
           <span className="text-sm text-foreground/75">Settings</span>
           <ArrowUpRight className="h-4 w-4 text-foreground/30" strokeWidth={1.5} />
         </Link>
+        <CopyNumbers className="col-span-2" />
       </div>
     </motion.main>
 

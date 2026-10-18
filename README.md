@@ -14,6 +14,8 @@ The app is a Progressive Web App (PWA). Once it's hosted you open a URL and add 
    - **iPhone (Safari):** Share → **Add to Home Screen**.
    - **Android (Chrome):** ⋮ menu → **Install app** / **Add to Home screen**.
 
+**iPhone: install first, then use only the home-screen app.** iOS gives a home-screen web app its own storage, separate from Safari, so anything entered in a Safari tab won't appear in the home-screen app (and the other way round). If you've already logged data in Safari, use **Settings → Your data → Export backup** there, then **Restore from backup** in the home-screen app. Deleting the home-screen icon deletes its data.
+
 It then launches full screen like a native app and works offline. All artwork ships with the app in `public/art/`, and a service worker precaches it along with the app shell. Fonts are cached after the first online load.
 
 ## Where your data lives
@@ -22,6 +24,10 @@ It then launches full screen like a native app and works offline. All artwork sh
 - Progress photos are shrunk to 1600 px JPEGs and stored as blobs in IndexedDB. They never leave the phone.
 - On startup the app asks the browser for persistent storage, so the OS won't clear the data under storage pressure.
 - **Settings → Your data** has **Export backup** (a JSON file that includes your photos; on phones it opens the share sheet), **Restore from backup**, and **Erase all data**. Make a backup before you switch phones or clear your browser data. Data is tied to the browser and URL you installed from.
+
+## Copy my numbers
+
+**Home → Copy my numbers** (also in Settings → Share with your coach) copies a plain-text snapshot of your app data to paste into a chat with your coach, for example a Claude Project with the AM Coach documents as project knowledge. It includes your profile, targets and maintenance confidence, the last 21 days of fuel logs (untracked days included), weigh-ins, training, habits, graded weeks and current journey step. On iPhone the share icon next to it can send the text straight to another app.
 
 ## Developing
 
@@ -40,7 +46,7 @@ npm run preview   # serve the production build
 | `src/api/db.js` | On-device data layer (IndexedDB) and the photo store. Replaces the Base44 SDK. |
 | `src/pages/` | Screens: Home, Fuel (+ Maintenance, GoalPacing), Train, Habits, Journey, Mirror, Gate, Settings |
 | `src/components/` | Feature components grouped by screen, plus shadcn/ui primitives in `ui/` |
-| `src/lib/` | Pure coaching logic: metabolism, winning week, journey engine, splits, gate, and more |
+| `src/lib/` | Pure coaching logic: metabolism, winning week, journey engine, splits, gate, and more; `myNumbers.js` builds the Copy my numbers text |
 | `public/` | PWA manifest, service worker, icons, bundled artwork (`art/`) |
 | `docs/ARCHITECTURE.md` | How the original app was reverse engineered, and how the logic works |
 | `docs/entities/` | The original Base44 entity schemas (the data model) |
